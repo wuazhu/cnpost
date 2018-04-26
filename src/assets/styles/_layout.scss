@@ -1,3 +1,142 @@
 /**
  * 本文件是项目布局样式
 **/
+
+.layout {
+  position: relative;
+}
+
+.layout-logo-left {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 12.5px 20px;
+  white-space: nowrap;
+  background: #363745;
+}
+
+.layout-logo-img {
+  width: 24px;
+  height: 24px;
+}
+
+.layout-sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1031;
+  width: 240px;
+  visibility: visible;
+  opacity: 1;
+  transition: all .15s;
+}
+
+.layout-sidebar--folded {
+   left: -50%;
+   visibility: hidden;
+   opacity: 0;
+ }
+
+.menu-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1031;
+  visibility: hidden;
+  background-color: #000;
+  opacity: 0;
+  transition: all .2s;
+}
+
+.menu-backdrop.show {
+   visibility: visible;
+   opacity: .6;
+ }
+
+@media (min-width: 768px) {
+  .menu-backdrop,
+  .menu-backdrop.show {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .layout-content {
+    margin-left: 240px;
+  }
+
+  .layout-sidebar--folded {
+    left: 0;
+    width: 70px;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .menu--vertical.menu--folded>li,
+  .menu--vertical.menu--folded .menu__submenu-title {
+    width: 70px;
+  }
+
+  .layout-sidebar--folded + .layout-content {
+    margin-left: 70px;
+  }
+
+  .layout-sidebar--folded .layout-logo-text {
+    visibility: hidden;
+  }
+}
+
+.layout-nav--top {
+  z-index: 1030;
+  height: 60px;
+  padding: .5rem 1rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+}
+
+.layout-content {
+  position: relative;
+  height: 100%;
+  transition: all .15s;
+}
+
+.layout--one-screen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.layout--one-screen .layout-sidebar {
+  position: fixed;
+}
+
+.layout--one-screen .menu--vertical {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  transition: all .3s;
+}
+
+.layout--one-screen .layout-sidebar--folded .menu--vertical {
+  overflow: visible;
+}
+
+.layout--one-screen .layout-main {
+  position: absolute;
+  right: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.layout--one-screen .layout-content footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

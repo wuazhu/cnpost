@@ -3,11 +3,19 @@
  * @author PRD UX R&D Dept.
  */
 
+import dashboard from './modules/dashboard/route'
+
 export default [
   {
-    name: 'welcome',
+    name: 'login',
     path: '/',
-    component: require('./modules/welcome.vue')
+    component: require('./modules/login.vue')
+  },
+  {
+    name: 'crm.portal',
+    path: '/crm/',
+    component: require('./modules/dashboard/index.vue'),
+    children: []
   },
   {
     path: '*',
