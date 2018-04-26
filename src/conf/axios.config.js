@@ -35,7 +35,14 @@ const appConf = window.APP_CONF
  */
 const conf = {
   commonConfig: {},
-  root: {}
+  root: {
+    crm: {
+      baseURL: 'http://localhost:3000/',
+      headers: {
+        AiDesign: 'Chinapost Demos'
+      }
+    }
+  }
 }
 
 // 将优先的静态配置覆盖本配置

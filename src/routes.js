@@ -9,13 +9,15 @@ export default [
   {
     name: 'login',
     path: '/',
-    component: require('./modules/login.vue')
+    component: require('./modules/login/login.vue')
   },
   {
-    name: 'crm.portal',
+    name: 'dashboard',
     path: '/crm/',
-    component: require('./modules/dashboard/index.vue'),
-    children: []
+    component: require('./modules/welcome.vue'),
+    children: [
+      ...dashboard
+    ]
   },
   {
     path: '*',
