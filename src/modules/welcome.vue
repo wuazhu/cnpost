@@ -4,8 +4,8 @@
       <div :class="['menu-backdrop', {'show': isOpen===true}]" @click="closeSidebar"></div>
       <div :class="['layout-sidebar bg-gray-darker show',{'layout-sidebar--folded': isOpen===false}]">
         <a href="#" class="layout-logo-left">
-            <img src="/static/images/aid-logo.png" alt="" class="layout-logo-img">
-            <span class="text-xxl text-white align-middle ml-1 layout-logo-text">&nbsp;&nbsp;ChinaPost</span>
+          <img src="/static/images/aid-logo.png" alt="" class="layout-logo-img">
+          <span class="text-xxl text-white align-middle ml-1 layout-logo-text">&nbsp;&nbsp;ChinaPost</span>
         </a>
         <t-menu :open-position="openPosition" :class="[{'menu--folded': isOpen===false}]" type="dark" accordion>
           <t-submenu name="1">
