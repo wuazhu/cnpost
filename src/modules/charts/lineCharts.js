@@ -1,96 +1,37 @@
 let option = {
   tooltip: {
     trigger: 'axis',
-    backgroundColor: 'rgba(255,255,255,0.8)',
+    backgroundColor: 'rgba(0,0,0,0.8)',
     extraCssText: 'box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);',
     textStyle: {
-      color: '#666'
+      color: '#f9f9f9'
     }
   },
-  grid: {
-    // top: '100',
-    // left: '3%',
-    // right: '4%',
-    // bottom: '50',
-    containLabel: true
-  },
-  xAxis: [{
+  xAxis: {
     type: 'category',
-    data: ['100', '300', '500', '700', '900', '1200', '1200以上'],
-    boundaryGap: false, // 坐标轴两边留白
-    alignWithLabel: true,
-    splitLine: {
-      show: false,
-      lineStyle: {
-        color: ['#D4DFF5']
-      }
-    },
-    axisTick: {
-      show: true,
-      inside: true
-    },
-    axisLine: {
-      lineStyle: {
-        color: '#666'
-      }
-    }
-  } ],
+    boundaryGap: false,
+    show: false,
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  },
   yAxis: {
     type: 'value',
-    boundaryGap: true,
-    axisLabel: {
-      textStyle: {
-        color: '#666',
-        fontStyle: 'normal'
-      }
-    },
-    axisLine: {
-      show: false
-    },
-    axisTick: {
-      color: '#dadfea',
-      inside: true
-    },
-    axisLabel: {
-      inside: true,
-      z: 10
-    },
-    splitLine: {
-      show: true,
-      lineStyle: {
-        type: 'dashed'
-      },
-      zlevel: 9999999
-    }
+    show: false
   },
   series: [{
-    type: 'line',
     smooth: true,
-    symbol: 'circle',
-    symbolSize: 16,
-    data: ['1200', '1400', '1008', '1411', '1026', '1288', '1300'],
+    data: [70, 90, 41, 80, 50, 30, 62],
+    type: 'line',
     areaStyle: {
-      normal: {
-
-      }
-    },
-    itemStyle: {
-      opacity: 0
-    },
-    lineStyle: {
-      normal: {
-        color: 'transparent'
-      }
-    },
-    emphasis: {
-      itemStyle: {
-        color: '#87d857',
-        borderColor: '#fff',
-        borderType: 'solid',
-        opacity: 1
-      }
+      color: '#6f43e2'
     }
-  }]
+  }],
+  grid: {
+    // 设置图表在容器中开始绘制的坐标
+    left: 0,
+    right: 0,
+    bottom: 80
+  }
+
 }
 
 export default option

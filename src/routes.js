@@ -16,7 +16,11 @@ export default [
     path: '/crm/',
     component: require('./modules/welcome.vue'),
     children: [
-      ...dashboard
+      {
+        name: 'dashboard',
+        path: '',
+        component: require('./modules/dashboard/index.vue')
+      }
     ]
   },
   {
