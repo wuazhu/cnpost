@@ -14,7 +14,7 @@
               <span>Dashboard</span>
             </template>
             <t-menu-item name="1-1">
-              <router-link to="/dashboard">Dashboard</router-link>
+              <router-link to="/crm/">Dashboard</router-link>
             </t-menu-item>
             <t-menu-item name="1-2">评论管理</t-menu-item>
             <t-menu-item name="1-3">举报管理</t-menu-item>
@@ -22,10 +22,10 @@
           <t-submenu name="2">
             <template slot="title">
               <t-icon type="account-multiple"></t-icon>
-              <span>用户管理</span>
+              <span>ECharts图表</span>
             </template>
-            <t-menu-item name="2-1">新增用户</t-menu-item>
-            <t-menu-item name="2-2">活跃用户</t-menu-item>
+            <t-menu-item name="2-1">图表1</t-menu-item>
+            <t-menu-item name="2-2">图表2</t-menu-item>
           </t-submenu>
           <t-submenu name="3">
             <template slot="title">
