@@ -4,8 +4,8 @@
       <div :class="['menu-backdrop', {'show': isOpen===true}]" @click="closeSidebar"></div>
       <div :class="['layout-sidebar bg-gray-darker show',{'layout-sidebar--folded': isOpen===false}]">
         <a href="#" class="layout-logo-left">
-            <img src="/static/images/aid-logo.png" alt="" class="layout-logo-img">
-            <span class="text-xxl text-white align-middle ml-1 layout-logo-text">&nbsp;&nbsp;ChinaPost</span>
+          <img src="/static/images/aid-logo.png" alt="" class="layout-logo-img">
+          <span class="text-xxl text-white align-middle ml-1 layout-logo-text">&nbsp;&nbsp;ChinaPost</span>
         </a>
         <t-menu :open-position="openPosition" :class="[{'menu--folded': isOpen===false}]" type="dark" accordion>
           <t-submenu name="1">
@@ -14,7 +14,7 @@
               <span>Dashboard</span>
             </template>
             <t-menu-item name="1-1">
-              <router-link to="/dashboard">Dashboard</router-link>
+              <router-link to="/crm/">Dashboard</router-link>
             </t-menu-item>
             <t-menu-item name="1-2">评论管理</t-menu-item>
             <t-menu-item name="1-3">举报管理</t-menu-item>
@@ -22,24 +22,40 @@
           <t-submenu name="2">
             <template slot="title">
               <t-icon type="account-multiple"></t-icon>
-              <span>用户管理</span>
+              <span>ECharts图表</span>
             </template>
-            <t-menu-item name="2-1">新增用户</t-menu-item>
-            <t-menu-item name="2-2">活跃用户</t-menu-item>
+            <t-menu-item name="2-1">
+              <router-link to="/crm/chart1">图标1</router-link>
+            </t-menu-item>
+            <t-menu-item name="2-2">
+              <router-link to="/crm/chart2">图标2</router-link>
+            </t-menu-item>
           </t-submenu>
           <t-submenu name="3">
+            <template slot="title">
+              <t-icon type="account-multiple"></t-icon>
+              <span>tableList</span>
+            </template>
+            <t-menu-item name="3-1">
+              <router-link to="/crm/frontEndPaging">frontEndPaging</router-link>
+            </t-menu-item>
+            <t-menu-item name="3-2">
+              <router-link to="/crm/backEndPaging">backEndPaging</router-link>
+            </t-menu-item>
+          </t-submenu>
+          <t-submenu name="4">
             <template slot="title">
               <t-icon type="chart-bar"></t-icon>
               <span>统计分析</span>
             </template>
             <t-menu-group title="使用">
-              <t-menu-item name="3-1">新增和启动</t-menu-item>
-              <t-menu-item name="3-2">活跃分析</t-menu-item>
-              <t-menu-item name="3-3">时段分析</t-menu-item>
+              <t-menu-item name="4-1">新增和启动</t-menu-item>
+              <t-menu-item name="4-2">活跃分析</t-menu-item>
+              <t-menu-item name="4-3">时段分析</t-menu-item>
             </t-menu-group>
             <t-menu-group title="留存">
-              <t-menu-item name="3-4">用户留存</t-menu-item>
-              <t-menu-item name="3-5">流失用户</t-menu-item>
+              <t-menu-item name="4-4">用户留存</t-menu-item>
+              <t-menu-item name="4-5">流失用户</t-menu-item>
             </t-menu-group>
           </t-submenu>
         </t-menu>
@@ -180,3 +196,14 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.menu {
+  .menu__item {
+    a {
+        flex: 1;
+        display: block;
+    }
+  }
+}
+</style>
