@@ -3,8 +3,10 @@
  * @author PRD UX R&D Dept.
  */
 
-import dashboard from './modules/dashboard/route'
-
+// import dashboard from './modules/dashboard/route'
+import tableList from './modules/tableList/route'
+import charts from './modules/eChart/route'
+console.log('tableList', tableList)
 export default [
   {
     name: 'login',
@@ -18,9 +20,11 @@ export default [
     children: [
       {
         name: 'dashboard',
-        path: '',
+        path: '/',
         component: require('./modules/dashboard/index.vue')
-      }
+      },
+      ...charts,
+      ...tableList
     ]
   },
   {

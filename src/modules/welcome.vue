@@ -24,22 +24,38 @@
               <t-icon type="account-multiple"></t-icon>
               <span>ECharts图表</span>
             </template>
-            <t-menu-item name="2-1">图表1</t-menu-item>
-            <t-menu-item name="2-2">图表2</t-menu-item>
+            <t-menu-item name="2-1">
+              <router-link to="/crm/chart1">图标1</router-link>
+            </t-menu-item>
+            <t-menu-item name="2-2">
+              <router-link to="/crm/chart2">图标2</router-link>
+            </t-menu-item>
           </t-submenu>
           <t-submenu name="3">
+            <template slot="title">
+              <t-icon type="account-multiple"></t-icon>
+              <span>tableList</span>
+            </template>
+            <t-menu-item name="3-1">
+              <router-link to="/crm/frontEndPaging">frontEndPaging</router-link>
+            </t-menu-item>
+            <t-menu-item name="3-2">
+              <router-link to="/crm/backEndPaging">backEndPaging</router-link>
+            </t-menu-item>
+          </t-submenu>
+          <t-submenu name="4">
             <template slot="title">
               <t-icon type="chart-bar"></t-icon>
               <span>统计分析</span>
             </template>
             <t-menu-group title="使用">
-              <t-menu-item name="3-1">新增和启动</t-menu-item>
-              <t-menu-item name="3-2">活跃分析</t-menu-item>
-              <t-menu-item name="3-3">时段分析</t-menu-item>
+              <t-menu-item name="4-1">新增和启动</t-menu-item>
+              <t-menu-item name="4-2">活跃分析</t-menu-item>
+              <t-menu-item name="4-3">时段分析</t-menu-item>
             </t-menu-group>
             <t-menu-group title="留存">
-              <t-menu-item name="3-4">用户留存</t-menu-item>
-              <t-menu-item name="3-5">流失用户</t-menu-item>
+              <t-menu-item name="4-4">用户留存</t-menu-item>
+              <t-menu-item name="4-5">流失用户</t-menu-item>
             </t-menu-group>
           </t-submenu>
         </t-menu>
@@ -180,3 +196,14 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.menu {
+  .menu__item {
+    a {
+        flex: 1;
+        display: block;
+    }
+  }
+}
+</style>

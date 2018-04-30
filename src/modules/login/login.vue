@@ -50,6 +50,7 @@ export default {
       loginForm: {
         username: '',
         password: '',
+        verify: 'itzx',
         rember: true
       },
       rules: {
@@ -74,6 +75,7 @@ export default {
     let palette = [colGreen, colClouds, colWetasphalt, colWetasphalt, colWetasphalt, colWetasphalt, colWetasphalt]
     let colMidnighterblue = [24, 28, 40]
     let stageCanvas = document.querySelector('#stage')
+    // eslint-disable-next-line
     new Doodle({
       canvas: stageCanvas,
       maxParticles: 100,
