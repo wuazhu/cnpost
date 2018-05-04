@@ -98,14 +98,14 @@ export default {
     }
   },
   created() {
-    this.getTabList({
+    this.getTabListByRd({
       currentPage: 1,
       pageSize: 10
     })
   },
   methods: {
     ...mapActions('tableList', {
-      getTabList: 'getTabList'
+      getTabListByRd: 'getTabListByRd'
     }),
     searchCusList() {
       // 查询列表后端分页

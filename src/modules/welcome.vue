@@ -2,15 +2,15 @@
   <div class="container ">
     <div class="layout layout--one-screen bg-gray-lightest-5">
       <div :class="['menu-backdrop', {'show': isOpen===true}]" @click="closeSidebar"></div>
-      <div :class="['layout-sidebar bg-gray-darker show',{'layout-sidebar--folded': isOpen===false}]">
+      <div :class="['layout-sidebar bg-gray-darker show',{'layout-sidebar--folded': isOpen===manual}]">
         <a href="#" class="layout-logo-left">
           <img src="/static/images/aid-logo.png" alt="" class="layout-logo-img">
           <span class="text-xxl text-white align-middle ml-1 layout-logo-text">&nbsp;&nbsp;ChinaPost</span>
         </a>
-        <t-menu :open-position="openPosition" :class="[{'menu--folded': isOpen===false}]" type="dark" accordion>
+        <t-menu :open-position="openPosition" :class="[{'menu--folded': isOpen===manual}]" type="dark" accordion>
           <t-submenu name="1">
             <template slot="title">
-              <t-icon type="home"></t-icon>
+              <t-icon type="view-dashboard"></t-icon>
               <span>Dashboard</span>
             </template>
             <t-menu-item name="1-1">
@@ -21,7 +21,7 @@
           </t-submenu>
           <t-submenu name="2">
             <template slot="title">
-              <t-icon type="account-multiple"></t-icon>
+              <t-icon type="chart-bar"></t-icon>
               <span>ECharts图表</span>
             </template>
             <t-menu-item name="2-1">
@@ -33,19 +33,19 @@
           </t-submenu>
           <t-submenu name="3">
             <template slot="title">
-              <t-icon type="account-multiple"></t-icon>
-              <span>tableList</span>
+              <t-icon type="table-row-height"></t-icon>
+              <span>查询表格类</span>
             </template>
             <t-menu-item name="3-1">
-              <router-link to="/crm/frontEndPaging">frontEndPaging</router-link>
+              <router-link to="/crm/frontEndPaging">查询表格后端分页</router-link>
             </t-menu-item>
             <t-menu-item name="3-2">
-              <router-link to="/crm/backEndPaging">backEndPaging</router-link>
+              <router-link to="/crm/backEndPaging">查询表格前端分页</router-link>
             </t-menu-item>
           </t-submenu>
           <t-submenu name="4">
             <template slot="title">
-              <t-icon type="chart-bar"></t-icon>
+              <t-icon type="counter"></t-icon>
               <span>统计分析</span>
             </template>
             <t-menu-group title="使用">
@@ -136,7 +136,7 @@ export default {
       languageList: [{ value: 'zh-CN', label: '简体中文' }, { value: 'en-US', label: 'en-US' }],
       language: i18nManager.language,
       reisezeTimer: null,
-      manual: false, // 是否点击切换按钮
+      manual: true, // 是否点击切换按钮
       isOpen: this.initSidebarState(),
       openPosition: this.initMenuPosition()
     }
@@ -155,6 +155,7 @@ export default {
   },
   methods: {
     switchedSidebarState() {
+      console.log(this.manual)
       this.isOpen = !this.isOpen
       this.openPosition = this.openPosition === 'down' ? 'right' : 'down'
       this.manual = true
@@ -171,11 +172,12 @@ export default {
       }
     },
     initMenuPosition() {
-      if (document.body.clientWidth > 992) {
-        return 'down'
-      } else {
-        return 'right'
-      }
+      return 'right'
+      // if (document.body.clientWidth > 992) {
+      //   return 'down'
+      // } else {
+      //   return 'right'
+      // }
     },
     onWindowResize() {
       if (document.body.clientWidth > 992) {

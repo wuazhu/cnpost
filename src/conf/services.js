@@ -3,5 +3,7 @@ export default {
     login: '/mock/dologin',
     logout: '/mock/dologout'
   },
-  dashboard: '/mock/dashboard'
+  dashboard: '/mock/dashboard',
+  getTabListByRd: '/mock/getTabListByRd',
+  getTabListByFe: '/mock/getTabListByFe'
 }

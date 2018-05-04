@@ -13,6 +13,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import { TMessage, TGlobalLoading } from 'aid-taurus-desktop'
+import router from './router'
 import config from './conf/axios.config.js'
 /* eslint no-useless-escape: "off" */
 /* eslint no-prototype-builtins: "off" */
@@ -157,8 +158,12 @@ function requestError(error) {
  * @returns {Object|Promise} 返回`Axios`响应对象或Promise对象
  */
 function responseInterceptor(response) {
+  let res = {
+    code: response.status || 0,
+    data: response.data || {}
+  }
   TGlobalLoading.finish()
-  return response
+  return res
 }
 
 /**
@@ -179,10 +184,24 @@ function responseInterceptor(response) {
  */
 function responseError(error) {
   TGlobalLoading.error()
-  return Promise.reject(error)
+  if (error.response) {
+    switch (error.response.status) {
+      case 401: // 当前请求需要用户验证
+        router.replace({
+          path: '/'
+        })
+        break
+    }
+  }
+  return {
+    code: error.response.status,
+    message: error.response.data
+  }
 }
 
 // 默认服务调用拦截器设置
+http.$crm.interceptors.request.use(requestInterceptor, requestError)
+http.$crm.interceptors.response.use(responseInterceptor, responseError)
 http.$http.interceptors.request.use(requestInterceptor, requestError)
 http.$http.interceptors.response.use(responseInterceptor, responseError)
 

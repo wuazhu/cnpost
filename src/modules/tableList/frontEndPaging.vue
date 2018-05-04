@@ -6,6 +6,22 @@
       <div class="searcharea">
         <div class="autosearch">
           <t-form ref="searchForm" style="float:left;">
+            <t-form-item label="姓名" prop="name">
+              <t-input v-model="formValidate.name" placeholder="请输入姓名"></t-input>
+            </t-form-item>
+            <t-form-item label="年龄" prop="age">
+              <t-input v-model="formValidate.age" placeholder="请输入年龄"></t-input>
+            </t-form-item>
+            <t-form-item label="邮箱" prop="mail">
+              <t-input v-model="formValidate.mail" placeholder="请输入邮箱"></t-input>
+            </t-form-item>
+            <t-form-item label="城市" prop="city">
+              <t-select v-model="formValidate.city" placeholder="请选择所在地">
+                <t-option value="beijing">北京市</t-option>
+                <t-option value="shanghai">上海市</t-option>
+                <t-option value="shenzhen">深圳市</t-option>
+              </t-select>
+            </t-form-item>
             <t-form-item prop="queryCustomer">
               <t-input
                 v-model="queryCustomer"
